@@ -469,6 +469,7 @@ def make_icon_ico(path):
 class MinosApp:
     def __init__(self):
         self.root = tk.Tk()
+        self.lang = "zh"
         self.root.title(f"Minos - {self._t('about_desc')}")
         self.root.geometry("330x260")
         self.root.resizable(False, False)
@@ -493,7 +494,6 @@ class MinosApp:
         self.show_cpu = True
         self.show_mem = True
         self.show_net = True
-        self.lang = "zh"
 
         # 标签引用（供语言切换后更新文本）
         self._label_refs = {}
@@ -783,8 +783,8 @@ class MinosApp:
                 f.pack(fill=tk.X, padx=10, pady=8)
                 content_rows += 1
 
-        # 动态调整窗口高度：每行 ~44px（内容 ~28px + 上下各 8px）
-        h = content_rows * 44
+        # 动态调整窗口高度：每行 ~44px + 标题栏 ~40px
+        h = content_rows * 44 + 40
         self.root.geometry(f"330x{h}")
 
     def _toggle_show_temp(self):
