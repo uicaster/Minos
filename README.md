@@ -32,6 +32,10 @@ The exe is output to the project root directory.
 
 ## Changelog
 
+### v1.13.0 — State persistence and single instance
+
+Window state (position, language, display toggles, temperature unit, immersive/transparent) is now saved to `Minos.json` on every change and on exit, then restored at startup. Single instance lock via named mutex prevents accidental multi-launch. Startup now auto-restores immersive mode and transparency with no visual flicker.
+
 ### v1.12.0 — Seven-language internationalization
 
 Added language switching for all 7 languages. New "Language" submenu in the tray. Labels, menu text, about dialog, and tray tooltip all update on switch.
